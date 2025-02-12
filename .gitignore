@@ -171,5 +171,7 @@ cython_debug/
 .pypirc
 
 credentials.json
-venv/
 __pycache__/
+*.pyc
+*.pyo
+venv/
