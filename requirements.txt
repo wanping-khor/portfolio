@@ -1,5 +1,0 @@
-pandas
-Flask
-gspread
-oauth2client
-gunicorn
