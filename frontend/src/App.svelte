@@ -93,7 +93,7 @@
           position: row[0] || "Unknown Position",
           company: row[1] || "Unknown Company",
           duration: row[2] || "N/A",
-          job_scope: row[3] || "N/A"
+          job_scope: row[3].split("\n").map(task => task.trim()).filter(task => task !== "")
         }));
       }
     } catch (error) {
@@ -172,20 +172,29 @@
         {/if}
       </div>
 
+      <!-- Skills -->
       <h2 class="section-title">Skills</h2>
       <div class="skills-box">
         {#each profile.skills as skill}
-          <div class="skill-item">{skill}</div>
+          <div class="skill-item">
+            <img src={`/icon/${skill}.png`} alt="{skill} icon" />
+            {skill}
+          </div>
         {/each}
       </div>
 
+      <!-- Achievements -->
       <h2 class="section-title">Achievements</h2>
       <div class="achievements-box">
         {#each profile.achievements as achievement}
-          <p>{achievement}</p>
+          <div class="achievement-item">
+            <img src={`/icon/achievement.png`} alt="achievement icon" />
+            <p>{achievement}</p>
+          </div>
         {/each}
       </div>
 
+      <!-- Languages -->
       <h2 class="section-title">Languages</h2>
       <div class="languages-box">
         {#each profile.languages as language}
@@ -193,18 +202,23 @@
         {/each}
       </div>
 
-      <h2 class="section-title">Interests</h2>
-      <div class="interests-box">
-        {#each profile.interests as interest}
-          <p>{interest}</p>
-        {/each}
+        <!-- Interests -->
+        <h2 class="section-title">Interests</h2>
+        <div class="interests-box">
+          {#each profile.interests as interest}
+            <div class="interest-item">
+              <span class="interest-icon">🎯</span>
+              <p>{interest}</p>
+            </div>
+          {/each}
+        </div>
       </div>
-    </div>
 
-  {:else if currentPage === "work_exp"}
+    {:else if currentPage === "work_exp"}
     <Work {workExperience} />
-
+  
   {:else if currentPage === "project_exp"}
     <Projects {projects} />
   {/if}
+  
 </div>
