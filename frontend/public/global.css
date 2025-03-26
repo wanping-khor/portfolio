@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&family=Public+Sans:wght@400;500;700;900&display=swap");
 
 body {
-  font-family: "Public Sans", "Noto Sans", sans-serif;
+  font-family: "times new roman";
   background-color: rgb(22, 22, 22);
   color: black;
   margin: 0;
@@ -22,43 +22,61 @@ body {
 }
 
 .navbar {
-  position: absolute;
-  top: 0;
-  left: 1%;
-  right: 3%;
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
   height: 60px;
-  background: #010d1a;
-  color: white;
-  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.9); /* 半透明白色背景 */
+  color: black;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 12px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px); /* 毛玻璃效果 */
+  z-index: 100;
 }
-  
+
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 15px;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: #333;
 }
 
 .nav-button {
-  background: transparent;
+  background: linear-gradient(135deg, #222, #444);
   border: none;
-  color: white;
+  color: white !important;
   font-size: 1rem;
-  padding: 10px 15px;
-  border-radius: 5px;
+  padding: 8px 15px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
 }
-  
+
 .nav-button:hover {
-  background: #00162c;
-  transform: scale(1.1);
+  background: linear-gradient(135deg, #444, #666);
+  transform: translateY(-2px);
+  color: black !important;
 }
-  
 
 .card {
   background-color: white;
@@ -106,12 +124,13 @@ h2 {
   padding-left: 3rem;
 }
 
-.section-title {
+.about-section-title {
   font-size: 18px;
   font-weight: bold;
   margin-top: 30px;
   border-bottom: 2px solid #ddd;
   padding-bottom: 5px;
+  padding-left: 5px;
 }
 
 .section-content {
@@ -134,7 +153,7 @@ h2 {
 
 .education-box {
   background-color: #f8f9fa;
-  padding: 20px;
+  /* padding: 20px; */
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
@@ -153,6 +172,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  width: 100%;
 }
   
 .edu-info {
@@ -182,6 +202,48 @@ h2 {
   color: #777;
   font-size: 14px;
   white-space: nowrap;
+  padding-right: 3%;
+}
+
+.edu-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 5px;
+}
+.edu-buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  padding-right: 3%;
+}
+
+.view-btn,
+.download-btn {
+  padding: 8px 12px;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.view-btn {
+  background: #3498db;
+  color: white;
+}
+
+.download-btn {
+  background: #2ecc71;
+  color: white;
+}
+
+.view-btn:hover {
+  background: #2980b9;
+}
+
+.download-btn:hover {
+  background: #27ae60;
 }
   
 .skills-box {
@@ -297,6 +359,7 @@ h2 {
     padding: 20px;
     width: 90%;
     color: white;
+    min-height: 100vh;
   }
 
 .section-title {
@@ -312,12 +375,13 @@ h2 {
 }
 
 .work-card {
-  background: transparent;
+  background: white;
   padding: 15px;
   border-bottom: 2px solid #777;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  color: black;
 }
 
 .work-card.visible {
@@ -342,6 +406,7 @@ h2 {
 .work-scope {
   margin-top: 10px;
   padding-left: 20px;
+  line-height: 26px;
 }
 
 .work-scope li {
@@ -352,35 +417,114 @@ h2 {
   text-align: center;
 }
 
-.projects-container {
+.project-exp-container {
+  padding: 20px;
+  width: 90%;
+  color: white;
+  min-height: 100vh;
+}
+
+.project-exp-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
-.project-box {
+
+.project-card {
+  background: white;
+  padding: 15px;
+  border-bottom: 2px solid #777;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  color: black;
+}
+
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-position {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.project-company {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.project-duration {
+  font-size: 14px;
+}
+
+.project-scope {
+  margin-top: 10px;
+  padding-left: 20px;
+  line-height: 26px;
+  flex: 1;
+}
+
+.project-scope li {
+  font-size: 14px;
+}
+
+.filters {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 15px;
 }
-.left {
-  flex-direction: row;
-}
-.right {
-  flex-direction: row-reverse;
-}
-.media {
-  display: flex;
-  align-items: center;
-}
-.media img {
-  width: 200px;
-  height: 150px;
-  object-fit: cover;
-}
-.download-btn {
-  padding: 5px 10px;
-  background-color: blue;
-  color: white;
-  text-decoration: none;
+
+.filters input, .filters select {
+  padding: 8px;
+  border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.loading-message {
+  color: lightgray;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.project-filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.project-section-title {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.achievement-button {
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%
+}
+
+.view-demo-button {
+  background-color: red;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  white-space: nowrap;
+  margin-right: 20px;
+}
+
+.project-header {
+  margin-bottom: 10px;
+}
+
+.project-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

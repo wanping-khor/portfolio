@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "flowbite-svelte": "^0.39.3",
     "svelte-spa-router": "^4.0.1"
   }
 }

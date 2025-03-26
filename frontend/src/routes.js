@@ -5,5 +5,5 @@ import Projects from "./Projects.svelte";
 export default {
   "/": About,
   "/work_exp": Work,
-  "/project_exp": Projects
+  "/project_exp": Projects,
 };
