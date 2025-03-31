@@ -78,9 +78,10 @@
       />
     
       <select bind:value={selectedCategory} on:change={applyFilters} style="margin-top: 10px; width: 10rem; background-color: transparent; color: white">
-        <option value="All">All Categories</option>
-        <option value="Analysis">Analysis</option>
-        <option value="Develop">Develop</option>
+        <option style="color: black" value="All">All Categories</option>
+        <option style="color: black" value="Analysis">Analysis</option>
+        <option style="color: black" value="Develop">Develop</option>
+        <option style="color: black" value="Individual Project">Individual Project</option>
       </select>
     </div>
   </div>
