@@ -7,7 +7,8 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "preview": "sirv public --single"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.0",
